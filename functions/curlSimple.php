@@ -22,3 +22,13 @@
         curl_close($ch);
         return $result;
     }
+    
+    /**
+     * @param $url
+     * @param array $fields
+     * @return mixed
+     */
+    function curlPost($url, $fields) {
+        $response = curlIt($url, [CURLOPT_POST => count($fields), CURLOPT_POSTFIELDS => $fields]);
+        return $response;
+    }
